@@ -1,0 +1,14 @@
+{
+  "includes": ["index.d.ts"],
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "target": "ES6",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "suppressImplicitAnyIndexErrors": false,
+    "downlevelIteration": true,
+    "allowUmdGlobalAccess": true,
+    "module": "ESNext"
+  }
+}

@@ -322,16 +322,20 @@ export const jPair: Parser<string> =
         jValue
     ) as any
 
-export const jPairs: Parser<string[]> = separateBy(jPair, aroundBySpace(char(',')))
+export const jPairs: Parser<string[]> = 
+    /** ↑ 类型签名 ↓ 实现 */
+    separateBy(jPair, aroundBySpace(char(',')))
 
-export const jObject: Parser<Object> = map(
-    bracket(
-        aroundBySpace(char('{')),
-        either(aroundBySpace(jPairs), inject([])),
-        aroundBySpace(char('}')),
-    ),
-    (entries: any[]) => 
-        entries.reduce((obj, [key, value]) => 
-            ({ ...obj, [key]: value }), {})
-)
+export const jObject: Parser<Object> = 
+    /** ↑ 类型签名 ↓ 实现 */
+    map(
+        bracket(
+            aroundBySpace(char('{')),
+            either(aroundBySpace(jPairs), inject([])),
+            aroundBySpace(char('}')),
+        ),
+        (entries: any[]) => 
+            entries.reduce((obj, [key, value]) => 
+                ({ ...obj, [key]: value }), {})
+    )
 

@@ -1,4 +1,4 @@
-import { apply, inject } from "./main";
+import { apply, inject } from "./core";
 import { Parser
        , PickParserT
        , PickFuncParameterByIdx

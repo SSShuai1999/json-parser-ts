@@ -9,6 +9,7 @@
     "suppressImplicitAnyIndexErrors": false,
     "downlevelIteration": true,
     "allowUmdGlobalAccess": true,
-    "module": "ESNext"
+    "module": "ESNext",
+    "emitDecoratorMetadata": false
   }
 }

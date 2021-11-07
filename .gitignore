@@ -1,9 +1,7 @@
+/pub
 node_modules
 .vscode
-!dist
 .DS_Store
-dist/js
-dist/libs
 .vscode
 .idea
 yarn.lock

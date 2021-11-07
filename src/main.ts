@@ -38,6 +38,7 @@ export const map: <A extends Parser<any>, B extends A, C>
         if (isFailed(result)) {
             return result
         } else {
+            
             const [data, rest_source] = result;
             return [f(data), rest_source] as any;
         }

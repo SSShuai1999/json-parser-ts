@@ -64,19 +64,3 @@ export type FuncType<A extends boolean | string | number, B extends unknown = un
                     A extends number ? 
                         "number" 
                             : never]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

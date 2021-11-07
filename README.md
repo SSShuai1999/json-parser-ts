@@ -5,5 +5,5 @@
 
 ## 介绍 / Introduce 
 
-`【从零开始用函数式实现 JSON Parser】` 文章的 TypeScript 实现版本。
+`从零开始用函数式实现 JSON Parser` 文章的 TypeScript 实现版本。
 

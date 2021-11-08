@@ -293,15 +293,15 @@ export const jString: Parser<string> =
     map(
         bracket(char(`"`), many(not(`"`)), char(`"`)),
         (list: any) => list.join("")
-    )
+    );
     
-export const jKey: Parser<string> = jString
+export const jKey: Parser<string> = jString;
 
-export const jValue: Parser<null | boolean | number | string | any[] | Object>
+export const jValue: Parser<null | boolean | number | string | any[] | Object> =
     /** ↑ 类型签名 ↓ 实现 */
-    = source => {
-    return oneOf(jNull, jBoolean, jNumber, jString, jArray, jObject)(source) 
-}
+    source => {
+       return oneOf(jNull, jBoolean, jNumber, jString, jArray, jObject)(source);
+    }
 
 export const jArray: Parser<any[]> = 
     /** ↑ 类型签名 ↓ 实现 */
@@ -309,7 +309,7 @@ export const jArray: Parser<any[]> =
         aroundBySpace(char('[')),
         separateBy(aroundBySpace(jValue), aroundBySpace(char(','))),
         aroundBySpace(char(']')),
-    )
+    );
 
 const jPairArg1 = inject(key => _ => value => [key, value]);
 
@@ -320,11 +320,11 @@ export const jPair: Parser<string> =
         jKey,
         aroundBySpace(char(':')),
         jValue
-    ) as any
+    ) as any;
 
 export const jPairs: Parser<string[]> = 
     /** ↑ 类型签名 ↓ 实现 */
-    separateBy(jPair, aroundBySpace(char(',')))
+    separateBy(jPair, aroundBySpace(char(',')));
 
 export const jObject: Parser<Object> = 
     /** ↑ 类型签名 ↓ 实现 */
@@ -337,5 +337,5 @@ export const jObject: Parser<Object> =
         (entries: any[]) => 
             entries.reduce((obj, [key, value]) => 
                 ({ ...obj, [key]: value }), {})
-    )
+    );
 

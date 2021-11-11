@@ -36,11 +36,10 @@ export type PickFuncParameterByIdx
             <A extends Function,
              M extends Number = 1,
              I extends Number[] = [0]> = 
-    A extends (arg: infer C) => infer B ? 
-                                I['length'] extends M ? 
-                                    C : B extends Function ? 
-                                       PickFuncParameterByIdx<B, M, [...I, 0]> : never
-                                : never 
+             A extends (arg: infer C) => infer B ? 
+                    I['length'] extends M ? C : 
+                    B extends Function ? PickFuncParameterByIdx<B, M, [...I, 0]> : never
+             : never 
 
 /** 取出函数的返回值类型 */
 export type PickFuncRet<A extends Function> = 
@@ -57,10 +56,6 @@ export type FuncType<A extends boolean | string | number, B extends unknown = un
     "boolean": B extends unknown[] ? (...args: B) => boolean : (args: B) => boolean,
     "string" : B extends unknown[] ? (...args: B) => string : (...args: B[]) => string,
     "number" : B extends unknown[] ? (...args: B) => number : (...args: B[]) => number,
-}[A extends boolean ? 
-        "boolean" : 
-            A extends string ? 
-                "string" : 
-                    A extends number ? 
-                        "number" 
-                            : never]
+}[A extends boolean ? "boolean" : 
+  A extends string  ? "string"  : 
+  A extends number  ? "number"  : never]
